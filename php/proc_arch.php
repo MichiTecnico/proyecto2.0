@@ -26,8 +26,7 @@
 				$ruta_temporal = $_FILES['archivo']['tmp_name'][$i];
 				move_uploaded_file($ruta_temporal, $ruta_nueva);
 				echo "El archivo ".$_FILES['archivo']['name'][$i]." se subio de manera exitosa<br>";
-				echo $ruta_nueva;
-			}
+				}
 		}
 	}
 	

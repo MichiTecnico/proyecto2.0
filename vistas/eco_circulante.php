@@ -1,7 +1,7 @@
 <?php  
 require_once '../php/validate_session.php';
 $_SESSION['rol'];
-if ($_SESSION['rol'] !== 'gerente' && $_SESSION['rol'] !== 'administrador'){
+if ($_SESSION['rol'] !== 'gerente' && $_SESSION['rol'] !== 'administrador' && $_SESSION['division'] === 'economia_circulante'){
 	header("Location: login.php");
 	exit();
 }
@@ -30,19 +30,35 @@ include "../inc/navbar.php";
 	    }	
 	</style>
 <body>
+	<nav class="menu_vertical">
+		<button class="botones_menu_vertical" onclick="mostrar_recibo()">Crear recibo<br><img class="icono_menu_vertical" src="../img/icono_recibo.png"></button>
+	</nav>
+
+<script>
+	//Crear recibo
+	function mostrar_recibo(){
+		var catalogo = document.getElementById('vista_catalogo');
+		var recibo = document.getElementById("form_recibo");
+		if (recibo.style.display === "none"){
+			recibo.style.display = "block";
+		}else{
+			recibo.style.display = "none";
+		}
+	}
+</script>
+
+<?php include "formulario_recibo.php"; ?>
+
+
 	<div class="contenedor_archivo">
-		<form action="../php/proc_arch.php" method="POST" enctype="multipart/form-data">	
+		<form style="margin-bottom: 1%; padding: 1%;" action="../php/proc_arch.php" method="POST" enctype="multipart/form-data">	
 				<select class="form-select" style="max-width: 200px;" name="destino_d" required>
 					<option value="" disabled selected>Division</option>
 					<option value="Recoleccion">Recoleccion</option>
 					<option value="Comercializacion">Comercializacion</option>
 				</select>
-			<input type="file" name="archivo[]"><br>
-			<input type="file" name="archivo[]"><br>
-			<input type="file" name="archivo[]"><br>
-			
+			<input type="file" name="archivo[]"><br>			
 			<button type="submit" name="btn_archivo">Enviar</button>
-			
 		</form>
 	</div>
 </body>

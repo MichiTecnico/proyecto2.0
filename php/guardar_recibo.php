@@ -1,5 +1,6 @@
 <?php
-require 'php/main.php';
+require 'main.php';
+
 
 // ===== CAPTURA DE DATOS DEL FORMULARIO =====
 $fecha       = $_POST['fecha'];
@@ -37,10 +38,10 @@ if ($stmt->execute()) {
     }
 
     echo "✅ Recibo guardado correctamente con ID: " . $id_recibo;
-    echo "<br><a href='../vistas/formulario_recibo.php'>Volver al formulario</a>";
+    echo "<br><a href='../vistas/eco_circulante.php'>Volver a la division</a>";
 } else {
     echo "❌ Error al guardar el recibo: " . $stmt->error;
 }
 
-$conn->close();
+$con->close();
 ?>

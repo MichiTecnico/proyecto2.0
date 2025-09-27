@@ -161,7 +161,7 @@
                 </div>
             
                 <div class="caja_trasera-login_pe">
-                    <h3>Bienvenido a ECOINNOVA</h3>
+                    <h3>Bienvenido al Sistema de Canje</h3>
                     <p>Accede a tu cuenta para consultar tu historial de reciclaje, verificar los puntos que has 
                     <br>acumulado y canjearlos por una variedad de articulos disponibles en nuestro catalogo.</br></p>
                     <br>"Tu compromiso con el reciclaje tiene valor."</br>
@@ -173,7 +173,7 @@
         <div class="contenedor_cliente-personal">        
             <form action="login.php" method="post" class="formulario_cliente">
                 <h2>Iniciar Sesión</h2>
-                <input type="int" placeholder="Ingrese su cédula" name="cedula">
+                <input type="int" placeholder="Ingrese su cédula" name="cedula" id="cedula_cli" autocomplete="off">
                 <div class="password-container">
                     <input type="password" placeholder="Ingrese su clave" name="clave" id="password_cli" required autocomplete="off">
                     <button type="button" class="toggle-password-cli" onclick="togglePasswordCli()">
@@ -184,9 +184,9 @@
             </form>
 
             <!-- Formulario de Personal -->
-            <form action="login.php" method="post" class="formulario_personal">
+            <form action="login.php" method="post" id="formPer" class="formulario_personal">
                 <h2>Iniciar Sesión</h2>
-                <input type="int" placeholder="Ingrese su cédula" name="cedula">
+                <input type="int" placeholder="Ingrese su cédula" name="cedula" id="cedula_per" autocomplete="off">
                 <div class="password-container">
                     <input type="password" placeholder="Ingrese su clave" name="clave" id="password_per" required autocomplete="off">
                     <button type="button" class="toggle-password-per" onclick="togglePasswordPer()">
@@ -229,6 +229,11 @@
         }
     }
 </script>
+
+<script>
+    
+</script>
+
 
 <!-- Bootstrap Icons -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">

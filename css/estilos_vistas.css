@@ -1,8 +1,7 @@
 .menu_vertical{
+	margin-top: 6%;
 	width: 100px;
 	height: auto;
-	background: white;
-	border: solid 1px black;
 	left: -2px;
 	position: fixed;
 }
@@ -33,7 +32,7 @@
 	background-position: center;
 	opacity: 0.8;
 	border: 2px solid #fff;
-	position: fixed;
+		position: fixed;
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
@@ -77,15 +76,18 @@
 }
 
 .contenedor_archivo{
+	width: auto;
+	height: auto;
+	padding: 1px;
 	position: fixed;
-	left: 88.7%;
-	top: 17%;
-	transform: translate(-50%, -50%);
+	left: 70%;
+	right: 1%;
+	top: 12%;
+	bottom: 67%;
 	background-color: white;
 	opacity: 0.8;
 	border-radius: 10px;
 }
-
 
 .contenedor_entradas{
 	 /* Activa el modelo de caja flexible */
@@ -108,10 +110,57 @@
 	top: 30%;
 	color: black;
 	border-radius: 20px;
-	zoom: 100%;
+	zoom: 80%;
 }
 
 .icono_entradas{
 	width: 150px;
 	height: 150px;
+}
+
+.contenedor_form_recibo{
+	width: auto;
+	height: auto;
+	background-color: white;
+	background-position: center;
+	opacity: 0.7;
+	border: 2px solid #fff;
+	position: fixed;
+	left: 45%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	padding: 1%;
+	color: black;
+	margin: 3%;
+	border-radius: 20px;
+	zoom: 75%;
+}
+
+
+.contenedor_vista_catalogo{
+	width: auto;
+	height: auto;
+	background-color: white;
+	background-position: center;
+	opacity: 0.7;
+	border: 2px solid #fff;
+	position: fixed;
+	left: 45%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	padding: 1%;
+	color: black;
+	margin: 3%;
+	border-radius: 20px;
+	zoom: 75%;
+	
+}
+
+
+
+
+
+
+
+
 }

@@ -104,10 +104,12 @@ if($_SESSION['rol'] !== 'administrador'){
 			</script>
 		
 			<?php include "../vistas/register.php";?>
+			
 
 			<?php include "../vistas/read.php"; ?>		
 
 			<?php include "../vistas/entradas.php"?>		
+
 </body>
 </html>
 

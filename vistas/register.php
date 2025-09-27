@@ -71,30 +71,6 @@
             </select>
         </div>
 
-            <script>
-                const input = document.getElementById("5");
-                const gerencias = ["1","2","3","4"];
-
-                input.addEventListener("change", function() {
-                    if (!gerencias.includes(input.value)) {
-                        alert("Elige una gerencia valida");
-                        input.value = "";
-                    }
-                });
-            </script>
-
-            <script>
-                const input = document.getElementById("6");
-                const divisiones = ["1","2","3","4","5","6","7","8","9","10"];
-
-                input.addEventListener("change", function() {
-                    if (!divisiones.includes(input.value)) {
-                        alert("Elige una division valida");
-                        input.value = "";
-                    }
-                });
-            </script>
-
         <div class="mb-3">    
             <select class="form-select" id="7" name="id_rol" style="max-width: 500px;">
                 <option value="" disabled selected>Rol</option>
@@ -121,14 +97,29 @@
             <input type="password" class="form-control" name="clave_ver" placeholder="Inserte de nuevo la contraseña" id="9" autocomplete="off">
         </div>
 
-        <!--VALIDACION DE CAMPOS VACIOS-->
-        <div id="emptyAlert" class="alert alert-danger alert-dismissible fade show" style="display: none;">
-            <strong>Error:</strong> Hay campos vacios
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        </div>
-
 
         <script>
+
+        function mostrarAlerta(mensaje, tipo = 'danger', tiempo = 5000){
+            const alertContainer = document.getElementById('alertContainer');
+
+            const alerta = document.createElement('div');
+            alerta.className = `alert alert-${tipo} alert-dismissible fade show`;
+            alerta.innerHTML =`
+                <strong>Error:</strong> ${mensaje}`;
+
+            alertContainer.appendChild(alerta);
+
+            setTimeout(() => {
+                if (alerta.parentElement) {
+                    alerta.remove();
+                }
+            }, tiempo);
+        }
+
+
+
+
         //Cuando se presiona el botón de enviar
         document.getElementById('registroForm').addEventListener('submit', function(e) {
                         
@@ -142,128 +133,58 @@
             const division = document.getElementById('6').value;
             const rol = document.getElementById('7').value;
             const clave = document.getElementById('8').value;
-            
-            //Borrar alertas viejas si existen
-            if (document.getElementById('emptyAlert')) {
-                document.getElementById('emptyAlert').remove();
-            }
-            if (document.getElementById('passwordAlert')) {
-                document.getElementById('passwordAlert').remove();
-            }
-            if (document.getElementById('validNationality')) {
-                document.getElementById('validNationality').remove();
-            }
-            if (document.getElementById('validManagement')) {
-                document.getElementById('validManagement').remove();
-            }
-            if (document.getElementById('validDivision')) {
-                document.getElementById('validDivision').remove();
-            }
-            if (document.getElementById('validRol')) {
-                document.getElementById('validRol').remove();
-            }
+            const clave_ver = document.getElementById('9').value;
 
-            //Inicializar variable para controlar envío
+            const alertContainer = document.getElementById('alertContainer');
+
+            // Inicializar variable si esta todo bien
             let todoBien = true;
-            
+                        
             //Validar campos vacíos
             if (nac === '' || cedula === '' || fecha === '' || nombre === '' || 
                 apellido === '' || gerencia === '' || division === '' || rol === '' || clave === '') {
                 todoBien = false;
-                
-                //Crear alerta de campos vacíos
-                const alertaVacia = document.createElement('div');
-                alertaVacia.id = 'emptyAlert';
-                alertaVacia.className = 'alert alert-danger';
-                alertaVacia.innerHTML = '<strong>Error:</strong> Hay campos vacíos <button onclick="this.parentElement.remove()">X</button>';
-                document.getElementById('registroForm').appendChild(alertaVacia);
+                mostrarAlerta('Hay campos vacios');
             }
             
             // 7. Validar contraseña
             if (clave.length < 8) {
                 todoBien = false;
-                
-                // Crear alerta de contraseña
-                const alertaClave = document.createElement('div');
-                alertaClave.id = 'passwordAlert';
-                alertaClave.className = 'alert alert-danger';
-                alertaClave.innerHTML = '<strong>Error:</strong> La clave debe tener 8 caracteres o más <button onclick="this.parentElement.remove()">X</button>';
-                document.getElementById('registroForm').appendChild(alertaClave);
+                mostrarAlerta('La contraseña debe tener 8 caracteres o mas');
+
             }
-            if (fecha !== "V" || fecha !== "E") {
+            if (nac !== "V" && nac !== "E") {
             todoBien = false;
-            
-            // Crear alerta de nacionalidad
-            const alertaFecha = document.createElement('div');
-            alertaFecha.id = 'validNationality';
-            alertaFecha.className = 'alert alert-danger';
-            alertaFecha.innerHTML = '<strong>Error:</strong> Elija una nacionalidad valida <button onclick="this.parentElement.remove()">X</button>';
-            document.getElementById('registroForm').appendChild(alertaFecha);
+            mostrarAlerta('Elija una nacionalidad valida');
+
             }
-            if (gerencia !== "1" || gerencia !== "2" || gerencia !== "3" || gerencia !== "4") {
+            if (gerencia !== "1" && gerencia !== "2" && gerencia !== "3" && gerencia !== "4") {
             todoBien = false;
-            
-            // Crear alerta de gerencia
-            const alertaGerencia = document.createElement('div');
-            alertaGerencia.id = 'validManagement';
-            alertaGerencia.className = 'alert alert-danger';
-            alertaGerencia.innerHTML = '<strong>Error:</strong> Elija una gerencia valida <button onclick="this.parentElement.remove()">X</button>';
-            document.getElementById('registroForm').appendChild(alertaGerencia);
-        }
-            if (division !== "1" || division !== "2" || division !== "3" || division !== "4" || division !== "5" || division !== "6" || division !== "7" || division !== "8" || division !== "9" || division !== "10") {
+            mostrarAlerta('Elija una gerencia valida');
+
+            }
+            if (division !== "1" && division !== "2" && division !== "3" && division !== "4" && division !== "5" && division !== "6" && division !== "7" && division !== "8" && division !== "9" && division !== "10") {
                 todoBien = false;
-            
-                // Crear alerta de division
-                const alertaDivision = document.createElement('div');
-                alertaDivision.id = 'validDivision';
-                alertaDivision.className = 'alert alert-danger';
-                alertaDivision.innerHTML = '<strong>Error:</strong> Elija una division valida <button onclick="this.parentElement.remove()">X</button>';
-                document.getElementById('registroForm').appendChild(alertaDivision);
+                mostrarAlerta('Elija una division valida');
+
+            }
+            if (rol !== "1" && rol !== "2" && rol !== "3") {
+                todoBien = false;
+                mostrarAlerta('Elija un rol valido');
+
+            }
+            if (clave_ver !== clave) {
+                todoBien = false;
+                mostrarAlerta('La contraseña no coincide con la verificacion');
+
             }
 
-            if (rol !== "1" || rol !== "2" || rol !== "3") {
-                todoBien = false;
-
-                // Crear alerta de rol
-                const alertaRol = document.createElement('div');
-                alertaRol.id = 'validRol';
-                alertaRol.className = 'alert alert-danger';
-                alertaRol.innerHTML = '<strong>Error:</strong> Elija un rol valido <button onclick="this.parentElement.remove()">X</button>';
-                document.getElementById('registroForm').appendChild(alertaRol);
-            }
             // 8. Solo enviar si todo está bien
             if (!todoBien) {
                 e.preventDefault();
             }
         });
         </script>
-
-        <script>
-            document.getElementById('registroForm').addEventListener('submit', function(e){
-                const clave = document.getElementById('8').value;
-                const clave_ver = document.getElementById('9').value;
-                let todoBien = true;
-                //Borrar alerta anterior
-                if (document.getElementById('alertaCoincidencia')) {
-                    document.getElementById('alertaCoincidencia').remove();
-                }
-
-                //Validar 
-                if (clave !== clave_ver) {
-                    todoBien = false;
-
-                    const alerta = document.createElement('div');
-                    alerta.id = 'alertaCoincidencia';
-                    alerta.className = 'alert alert-danger';
-                    alerta.innerHTML = '<strong>Error:</strong> La contraseña no coincide <button onclick="this.parentElement.remove()">X</button>';
-                    document.getElementById('registroForm').appendChild(alerta);
-                }
-                if (!todoBien) {
-                    e.preventDefault();
-                }
-            });
-        </script>
-
 
         <script>
             function togglePassword() {
@@ -285,6 +206,7 @@
 
     </form>
 </div>
+<div id="alertContainer" style="position: fixed; top: 13%; right: 20px; z-index: 1000; width: 300px;"></div>
 
     
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">

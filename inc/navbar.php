@@ -13,8 +13,3 @@
 
   </div>
 </nav>
-<style>
-  body{
-    padding-top: 7.5%;
-  }
-</style>
