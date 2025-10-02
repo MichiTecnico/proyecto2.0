@@ -1,0 +1,15 @@
+<html>
+    <head><meta charset='UTF-8'><title>Recibo 18</title></head>
+    <body>
+        <h1>RECIBO DE MATERIALES</h1>
+        <p><strong>Número:</strong> 18</p>
+        <p><strong>Fecha:</strong> 28/09/2025</p>
+        <p><strong>Comercio:</strong> UPTEC-MS</p>
+        <p><strong>Responsable:</strong> Angel</p>
+        
+        <h2>Materiales:</h2>
+        <ul><li>Carton: 10 kg, 1 puntos</li></ul>
+        <p><strong>Total:</strong> 10 kg, 1 puntos</p>
+        <p><em>Generado el: 28/09/2025 04:32:51</em></p>
+    </body>
+    </html>
