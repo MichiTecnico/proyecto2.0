@@ -1,8 +1,8 @@
 <?php
 # Conexion a base de datos (ccs_recicla)
 $host = "localhost";
-$user = "root";
-$pass = "";
+$user = "admin";
+$pass = "?";
 $db = "ccs_recicla";
 
 $con = mysqli_connect($host, $user, $pass, $db);
