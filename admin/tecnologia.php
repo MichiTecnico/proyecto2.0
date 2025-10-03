@@ -15,16 +15,15 @@ if($_SESSION['rol'] !== 'administrador' || $_SESSION['division' !== 'tecnologia'
 	<title>Division de Tecnologia</title>
 	<link rel="stylesheet" href="../css/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/estilos_vistas.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 	<style>
 	.password-container {
 		position: relative;
 	}
 	.toggle-password{
 		position: absolute;
-		right: 10px;
-		top: 55%;
-		transform: translateY(-50%);
+		right: 25px;
+		top: 79%;
+		transform: translateY(-40%);
 		cursor: pointer;
 		background: none;
 		border: none;
@@ -36,6 +35,8 @@ if($_SESSION['rol'] !== 'administrador' || $_SESSION['division' !== 'tecnologia'
     background-attachment: fixed;
     background-color: rgba(0, 0, 0, 0.3);
     background-blend-mode: multiply;
+    min-height: 100vh;
+    overflow-y: auto;
 	}
 	</style>
 </head>
@@ -44,20 +45,19 @@ if($_SESSION['rol'] !== 'administrador' || $_SESSION['division' !== 'tecnologia'
 	<!--INCLUIR BARRA DE NAVEGACION PREDETERMINADA-->
 	<?php include "../inc/navbar.php";?>
 	
-		<!--MENU VERTICAL A LA IZQUIERDA-->	
-		<nav class="menu_vertical">
-			
-			<!--BOTON CRUD0-->
-			<button class="botones_menu_vertical" onclick="mostrar_crud0()">Registro<br><img class="icono_menu_vertical" src="../img/icono_usuarios.png"></button>
-			<!--BOTON CRUD1-->
-			<button class="botones_menu_vertical" onclick="mostrar_crud1()">Listado<img class="icono_menu_vertical" src="../img/icono_listado.png"></button>
-			<!--BOTON ENTRADAS-->
-			<button class="botones_menu_vertical" onclick="mostrar_entradas()">Entradas<img class="icono_menu_vertical" src="../img/entrada.png"></button>
-
-
-		</nav>
-		<!--ACCION DE BOTONES-->
-		<script>
+		<div class="main-container">
+			<!--MENU VERTICAL A LA IZQUIERDA-->	
+			<nav class="menu_vertical">
+				
+				<!--BOTON CRUD0-->
+				<button class="botones_menu_vertical" onclick="mostrar_crud0()">Registro<br><img class="icono_menu_vertical" src="../img/icono_usuarios.png"></button>
+				<!--BOTON CRUD1-->
+				<button class="botones_menu_vertical" onclick="mostrar_crud1()">Listado<img class="icono_menu_vertical" src="../img/icono_listado.png"></button>
+				<!--BOTON ENTRADAS-->
+				<button class="botones_menu_vertical" onclick="mostrar_entradas()">Entradas<img class="icono_menu_vertical" src="../img/entrada.png"></button>
+			</nav>
+			<!--ACCION DE BOTONES-->
+			<script>
 				//CRUD
 				function mostrar_crud0(){
 					var crud0 = document.getElementById("form_registro");
@@ -97,17 +97,17 @@ if($_SESSION['rol'] !== 'administrador' || $_SESSION['division' !== 'tecnologia'
 					}else{
 						entradas.style.display = "none";
 					}
-				}
-
-
-				
+				}	
 			</script>
-		
+		</div>
+		<div style="min-height: 700px; position: relative;">
 			<?php include "../vistas/register.php";?>
 			
 			<?php include "../vistas/read.php";?>
 
 			<?php include "../vistas/entradas.php"?>		
+		</div>
+		<script src="../js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

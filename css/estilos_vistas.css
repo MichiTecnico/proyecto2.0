@@ -32,7 +32,7 @@
 	background-position: center;
 	opacity: 0.8;
 	border: 2px solid #fff;
-		position: fixed;
+	position: fixed;
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
@@ -88,22 +88,18 @@
 
 .contenedor_entradas{
 	width: auto;
-	height: auto;
-	background-position: center;
-	opacity: 0.9;
-	border: 2px solid black;
 	position: fixed;
-	left: 50%;
+	left: 55%;
 	top: 50%;
 	transform: translate(-50%, -50%);
 	padding: 1%;
 	border-radius: 20px;
-	zoom: 30%;
+	zoom: 50%;
 }
 
 .icono_entradas{
-	width: 180px;
-	height: 150px;
+	width: 250px;
+	height: 250px;
 	margin-bottom: 2%;
 
 }
@@ -144,6 +140,11 @@
 	border-radius: 20px;
 	zoom: 75%;
 	
+}
+
+html{
+	height: 100%;
+	overflow-y: scroll !important;
 }
 
 

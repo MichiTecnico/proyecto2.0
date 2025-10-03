@@ -1,22 +1,28 @@
 <div class="contenedor_entradas" id="entradas" style="display: none;">
-	<nav class="input-group">
-		<a class="btn btn-success btn-sm" href="../vistas/">Administracion</a>
-		<br><img src="../img/ent_administracion.jpg">
-		<a class="btn btn-warning btn-sm" href="../vistas/">Gestion Humana</a><br>
-		<img class="mb-3" src="../img/ent_humana.jpg">
-		<a class="btn btn-warning btn-sm" href="../vistas/">Seguridad Integral</a><br>
-		<img class="mb-3" src="../img/ent_seguridad.jpg">
-		<a class="btn btn-warning btn-sm" href="../vistas/">Planificacion Presupuesto</a>
-		<br><img class="mb-3" src="../img/ent_planificacion.jpg">
-		<a class="btn btn-warning btn-sm" href="../vistas/">Gestion Comunicacional</a><br>
-		<img class="mb-3" src="../img/ent_comunicacion.jpg">
-		<a class="btn btn-warning btn-sm" href="../vistas/">Servicios</a><br>
-		<img class="mb-3" src="../img/ent_servicios.jpg">
-		<a class="btn btn-warning btn-sm" href="../vistas/">Recoleccion</a><br>
-		<img class="mb-3" src="../img/ent_recoleccion.jpg">
-		<a class="btn btn-warning btn-sm" href="../vistas/">Comercializacion</a><br>
-		<img class="mb-3" src="../img/ent_comercializacion.jpg">
-		<a class="btn btn-warning btn-sm" href="../vistas/eco_circulante.php"></a>Economia Circulante<br>
-		<img src="../img/ent_circulante.jpg">
-	</nav>
+	<table class="table">
+		<thead style="padding: 2px;">
+			<th style="text-align: center;"><a class="btn btn-outline-success"><h3>Administracion</h3></a></th>
+			<th style="text-align: center;"><a class="btn btn-outline-success"><h3>Gestion Humana</h3></a></th>
+			<th style="text-align: center;"><a class="btn btn-outline-success"><h3>Seguridad Integral</h3></a></th>
+			<th style="text-align: center;"><a class="btn btn-outline-success"><h3>Planificacion y Presupuesto</h3></a></th>
+			<th style="text-align: center;"><a class="btn btn-outline-success"><h3>Gestion Comunicacional</h3></a></th>
+			<th style="text-align: center;"><a class="btn btn-outline-success"><h3>Servicios</h3></a></th>
+			<th style="text-align: center;"><a class="btn btn-outline-success"><h3>Recoleccion</h3></a></th>
+			<th style="text-align: center;"><a class="btn btn-outline-success"><h3>Comercializacion</h3></a></th>
+			<th style="text-align: center;"><a class="btn btn-outline-success" href="../vistas/eco_circulante.php"><h3>Economia Circulante</h3></a></th>
+		</thead>
+		<tbody>
+			<tr>
+				<td scope="col" style="text-align: center;"><img class="icono_entradas" src="../img/ent_administracion.jpg"></td>
+				<td scope="col" style="text-align: center;"><img class="icono_entradas" src="../img/ent_humana.jpg"></td>
+				<td scope="col" style="text-align: center;"><img class="icono_entradas" src="../img/ent_seguridad.jpg"></td>
+				<td scope="col" style="text-align: center;"><img class="icono_entradas" src="../img/ent_planificacion.jpg"></td>
+				<td scope="col" style="text-align: center;"><img class="icono_entradas" src="../img/ent_comunicacion.jpg"></td>
+				<td scope="col" style="text-align: center;"><img class="icono_entradas" src="../img/ent_servicios.jpg"> </td>
+				<td scope="col" style="text-align: center;"><img class="icono_entradas" src="../img/ent_recoleccion.jpg"></td>
+				<td scope="col" style="text-align: center;"><img class="icono_entradas" src="../img/ent_comercializacion.jpg"></td>
+				<td scope="col" style="text-align: center;"><img class="icono_entradas" src="../img/ent_circulante.jpg"></td>
+			</tr>
+		</tbody>
+	</table>
 </div>

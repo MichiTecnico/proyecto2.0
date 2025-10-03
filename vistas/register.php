@@ -7,17 +7,17 @@
 
             <div class="input-group"> <!-- Contenedor unificado -->
                 <!-- Select para V/E -->
-                <div class="mb-3">    
-                    <label for="0" class="form-label">Nacionalidad</label>
-                    <select class="form-select" id="0" name="nacionalidad" style="width: 100px;">
+                <div class="form-group">    
+                    <label for="0">Nacionalidad</label>
+                    <select class="form-control" id="0" name="nacionalidad">
                         <option value="" disabled selected></option>
                         <option value="V">V</option>
                         <option value="E">E</option>
                     </select>
                 </div>
-                <div class="mb-3" style="text-align: center;">    
+                <div class="form-group">    
                     <!-- Input para número de cédula -->
-                    <label for="1" class="form-label">Cedula</label>
+                    <label for="1">Cedula</label>
                     <input id="1" type="text" 
                     style="width: auto;" 
                         class="form-control" 
@@ -31,25 +31,28 @@
     
 
         <!-- Cambia SOLO este campo -->
-        <div class="mb-3">
-            <label class="form-label">Fecha de nacimiento</label>
+        <div class="form-group">
+            <label for="2">Fecha de nacimiento</label>
             <input id="2" type="date" class="form-control" name="fecha_nac" id="2" autocomplete="off">
         </div>
 
         <!-- Mantén TODO el resto de tu código exactamente igual -->
         
 
-        <div class="mb-3">
-            <input type="text" class="form-control" id="3" name="nombre" placeholder="Nombre" autocomplete="off">
+        <div class="form-group">
+            <label for="3">Nombre</label>
+            <input type="text" class="form-control" id="3" name="nombre" autocomplete="off">
         </div>
         
-        <div class="mb-3">
-            <input type="text" class="form-control" id="4" name="apellido" placeholder="Apellido" autocomplete="off">
+        <div class="form-group">
+            <label for="4">Apellido</label>
+            <input type="text" class="form-control" id="4" name="apellido" autocomplete="off">
         </div>
         
-        <div class="mb-3">
-            <select class="form-select" name="id_gerencia" id="5" style="max-width: 500px;">
-                <option value="" disabled selected>Gerencia</option>
+        <div class="form-group">
+            <label for="5">Gerencia</label>
+            <select class="form-control" name="id_gerencia" id="5" style="max-width: 500px;">
+                <option value="" disabled selected></option>
                 <option value="1">Gestion Interna</option>
                 <option value="2">Consultoria Juridica</option>
                 <option value="3">Operaciones</option>
@@ -57,9 +60,10 @@
             </select>
         </div>
 
-        <div class="mb-3">
-            <select class="form-select" name="id_division" id="6" style="max-width: 500px;">
-                <option value="" disabled selected>Division</option>
+        <div class="form-group">
+            <label for="6">Division</label>
+            <select class="form-control" name="id_division" id="6" style="max-width: 500px;">
+                <option value="" disabled selected></option>
                 <option value="1">Administracion y Finanzas</option>
                 <option value="2">Gestion Humana</option>
                 <option value="3">Seguridad Integral</option>
@@ -73,26 +77,22 @@
             </select>
         </div>
 
-        <div class="mb-3">    
+        <div class="form-group">
+            <label for="7">Rol</label>
             <select class="form-select" id="7" name="id_rol" style="max-width: 500px;">
-                <option value="" disabled selected>Rol</option>
+                <option value="" disabled selected></option>
                 <option value="1">Administrador</option>
                 <option value="2">Gerente</option>
                 <option value="3">Usuario</option>
             </select>
         </div>
 
-        <div class="mb- password-container">
+        <div class="form-group">
+            <label for="8">Clave</label>
             <input type="password" class="form-control" name="clave" placeholder="Inserte una contraseña" id="8" autocomplete="off">
             <button type="button" class="toggle-password" onclick="togglePassword()">
                 <i class="bi bi-eye-slash"></i>
             </button>
-
-            <!--VALIDACION: MINIMO DE CARACTERES DE CLAVE (FRONTED)-->    
-            <div id="passwordAlert" class="alert alert-danger alert-dismissible fade show" style="display: none;">
-                <strong>Error:</strong> La clave debe tener 8 caracteres o mas
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            </div>
         </div>
 
         <div class="mb- password-container">
