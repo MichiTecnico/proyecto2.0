@@ -1,0 +1,185 @@
+.menu_vertical{
+    margin-top: 6%;
+    width: 100px;
+    height: auto;
+    position: absolute;
+    z-index: 100;
+}
+
+.icono_menu_vertical{
+    width: 90px;
+    height: 90px;
+    border: none;
+}
+
+.botones_menu_vertical{
+    width: auto;
+    height: auto;
+    border: solid 1px black;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    background: white;
+    transition: all 0.2s ease;
+}
+
+.botones_menu_vertical:active {
+    box-shadow: 0 0 2px rgba(0,0,0,0.3);
+    transform: translateY(2px);
+}
+
+.contenedor_form_registro{
+    width: 500px; /* Mantengo tamaño original */
+    min-height: 600px; /* Tamaño original */
+    background-color: rgba(98, 104, 95, 0.979);
+    border: 2px solid #fff;
+    position: relative;
+    left: 900%;
+    right: 1000%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    color: white;
+    border-radius: 20px;
+    opacity: 0.9;
+    display: none;
+    overflow-y: auto;
+}
+
+.contenedor_lista_usu{
+    width: 1500px; /* Mantengo tamaño original */
+    height: auto; /* Altura automática según contenido */
+    background: rgba(255, 255, 255, 0.95);
+    position: absolute;
+    left: 900%;
+    right: 900%;
+    top: 50px; /* Posición fija desde arriba */
+    transform: translateX(-50%); /* Solo centrado horizontal */
+    padding: 20px;
+    color: black;
+    display: none;
+    border-radius: 10px;
+    overflow-y: auto;
+    max-height: 80vh; /* Scroll si es muy largo */
+    margin-top: 20px;
+}
+
+.contenedor_entradas{
+    width: 2500px; /* Mantengo tamaño original */
+    height: 500px; /* Altura automática */
+    position: absolute;
+    left: 900%;
+    right: 1000%;
+    top: 50px; /* Posición fija desde arriba */
+    transform: translateX(-50%); /* Solo centrado horizontal */
+    padding: 20px;
+    border-radius: 20px;
+    display: none;
+    background: rgba(255, 255, 255, 0.95);
+    overflow-y: auto;
+    max-height: 80vh; /* Scroll si es muy largo */
+    margin-top: 20px;
+    zoom: 60%;
+}
+
+.contenedor_form_update{
+    width: 30%;
+    height: auto;
+    background-color: #3c3c3caf;
+    border: 2px solid rgb(0, 0, 0);
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    color: white;
+    border-radius: 20px;
+    z-index: 2000;
+}
+
+.contenedor_archivo{
+    width: auto;
+    height: auto;
+    padding: 15px;
+    position: fixed;
+    right: 20px;
+    top: 100px;
+    background-color: white;
+    opacity: 0.95;
+    border-radius: 10px;
+    z-index: 1500;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.icono_entradas{
+    width: 250px; /* Tamaño original */
+    height: 250px; /* Tamaño original */
+    margin-bottom: 20px;
+}
+
+.contenedor_form_recibo{
+    width: auto;
+    height: auto;
+    background-color: white;
+    border: 2px solid #fff;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    color: black;
+    border-radius: 20px;
+    z-index: 2000;
+    opacity: 0.95;
+}
+
+.contenedor_vista_catalogo{
+    width: auto;
+    height: auto;
+    background-color: white;
+    border: 2px solid #fff;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    color: black;
+    border-radius: 20px;
+    z-index: 2000;
+    opacity: 0.95;
+}
+
+/* Solo responsive para móviles */
+@media (max-width: 768px) {
+    .contenedor_form_registro{
+        width: 95%;
+        max-width: 500px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .contenedor_lista_usu{
+        width: 95%;
+        max-width: 800px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .contenedor_entradas{
+        width: 95%;
+        max-width: 700px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .menu_vertical {
+        position: relative;
+        margin: 10px auto;
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .botones_menu_vertical {
+        display: inline-block;
+        margin: 5px;
+    }
+}

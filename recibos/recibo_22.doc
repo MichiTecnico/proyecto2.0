@@ -1,0 +1,15 @@
+<html>
+    <head><meta charset='UTF-8'><title>Recibo 22</title></head>
+    <body>
+        <h1>RECIBO DE MATERIALES</h1>
+        <p><strong>Número:</strong> 22</p>
+        <p><strong>Fecha:</strong> 28/09/2025</p>
+        <p><strong>Comercio:</strong> UPTEC-MS</p>
+        <p><strong>Responsable:</strong> Angel Granados</p>
+        
+        <h2>Materiales:</h2>
+        <ul><li>Carton: 10 kg, 1 puntos</li><li>Archivo: 10 kg, 1 puntos</li></ul>
+        <p><strong>Total:</strong> 20 kg, 2 puntos</p>
+        <p><em>Generado el: 29/09/2025 00:50:36</em></p>
+    </body>
+    </html>

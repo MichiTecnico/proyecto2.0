@@ -1,0 +1,177 @@
+-- ===============================
+-- CREACIÓN DE BASE DE DATOS
+-- ===============================
+CREATE DATABASE ecoinova_canje;
+USE ecoinova_canje;
+
+-- ===============================
+-- TABLA DE USUARIOS
+-- ===============================
+CREATE TABLE usuarios (
+    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    telefono VARCHAR(20),
+    puntos_totales INT DEFAULT 0,
+    fecha_registro DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- ===============================
+-- TABLA DE CATEGORÍAS
+-- ===============================
+CREATE TABLE categorias (
+    id_categoria INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL
+);
+
+-- ===============================
+-- TABLA DE PRODUCTOS
+-- ===============================
+CREATE TABLE productos (
+    id_producto INT AUTO_INCREMENT PRIMARY KEY,
+    id_categoria INT,
+    nombre VARCHAR(100) NOT NULL,
+    descripcion TEXT,
+    puntos INT NOT NULL,
+    es_kit BOOLEAN DEFAULT 0,
+    FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria)
+);
+
+-- ===============================
+-- TABLA DE DETALLES DE KITS
+-- ===============================
+CREATE TABLE kits_detalles (
+    id_kit INT,
+    id_producto INT,
+    cantidad INT DEFAULT 1,
+    PRIMARY KEY (id_kit, id_producto),
+    FOREIGN KEY (id_kit) REFERENCES productos(id_producto),
+    FOREIGN KEY (id_producto) REFERENCES productos(id_producto)
+);
+
+-- ===============================
+-- TABLA DE HISTORIAL DE CANJES
+-- ===============================
+CREATE TABLE historial_canje (
+    id_canje INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT,
+    id_producto INT,
+    cantidad INT DEFAULT 1,
+    puntos_usados INT,
+    fecha_canje DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario),
+    FOREIGN KEY (id_producto) REFERENCES productos(id_producto)
+);
+
+-- ===============================
+-- TABLA DE HISTORIAL DE RECICLAJE
+-- ===============================
+CREATE TABLE historial_reciclaje (
+    id_historial INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT,
+    tipo_material VARCHAR(50),
+    cantidad_kg DECIMAL(10,2),
+    puntos_obtenidos INT,
+    fecha_registro DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
+);
+
+-- ===============================
+-- CARGA DE CATEGORÍAS
+-- ===============================
+INSERT INTO categorias (nombre) VALUES
+('Deportivos'),
+('Pinturas'),
+('Luminarias'),
+('Ferretería'),
+('Limpieza'),
+('Librería');
+
+-- ===============================
+-- CARGA DE PRODUCTOS
+-- ===============================
+-- Deportivos
+INSERT INTO productos (id_categoria, nombre, puntos) VALUES
+(1, 'Balón de basquet', 30),
+(1, 'Balón de fútbol', 30),
+(1, 'Balón de voleibol', 30);
+
+-- Pinturas
+INSERT INTO productos (id_categoria, nombre, puntos) VALUES
+(2, 'Maxigama Galón tipo C', 15),
+(2, 'Maxigama Cuñete tipo C', 35),
+(2, 'Maxigama Alto tráfico amarillo y blanco Cuñete', 75),
+(2, 'Maxigama Alto tráfico amarillo y blanco Galón', 20),
+(2, 'Maxigama Cancha Cuñete', 75);
+
+-- Luminarias
+INSERT INTO productos (id_categoria, nombre, puntos) VALUES
+(3, 'Reflector 50W', 10),
+(3, 'Reflector 100W', 15),
+(3, 'Reflector 200W', 22),
+(3, 'Bombillo 9W', 5);
+
+-- Ferretería
+INSERT INTO productos (id_categoria, nombre, puntos) VALUES
+(4, 'Cemento 42.5 kg', 18),
+(4, 'Pego 10 kg', 8),
+(4, 'Kit Ferretería', 40, 1); -- es_kit = 1
+
+-- Limpieza
+INSERT INTO productos (id_categoria, nombre, puntos) VALUES
+(5, 'Rastrillo', 15),
+(5, 'Escoba', 6),
+(5, 'Pala plástica', 8),
+(5, 'Candado Anticizalla latón 70mm Pro Al | Zio', 70),
+(5, 'Kit Limpieza', 35, 1); -- es_kit = 1
+
+-- Librería
+INSERT INTO productos (id_categoria, nombre, puntos) VALUES
+(6, 'Engrapadora', 20),
+(6, 'Caja de grapas', 7),
+(6, 'Pega blanca grande', 6),
+(6, 'Caja de tijeras', 20),
+(6, 'Paquete de teipes', 15),
+(6, 'Caja de borrador de pizarra', 40),
+(6, 'Caja de silicón', 15),
+(6, 'Caja de lápices', 5),
+(6, 'Caja de tipex', 17),
+(6, 'Caja de bolígrafos', 8),
+(6, 'Caja de tiza', 5),
+(6, 'Paquete de carpetas', 25),
+(6, 'Resma de hojas', 12),
+(6, 'Kit Higiene', 15, 1); -- es_kit = 1
+
+-- ===============================
+-- DETALLES DE LOS KITS
+-- ===============================
+-- Kit Ferretería
+INSERT INTO kits_detalles (id_kit, id_producto, cantidad) VALUES
+((SELECT id_producto FROM productos WHERE nombre='Kit Ferretería'), (SELECT id_producto FROM productos WHERE nombre='Cemento 42.5 kg'), 1);
+
+-- Aquí deberías agregar Arena lavada y Bloques como productos independientes si los vas a controlar
+-- Ejemplo:
+INSERT INTO productos (id_categoria, nombre, puntos) VALUES
+(4, 'Arena lavada 30 kg', 0),
+(4, 'Bloque 15x20x30', 0);
+
+INSERT INTO kits_detalles (id_kit, id_producto, cantidad) VALUES
+((SELECT id_producto FROM productos WHERE nombre='Kit Ferretería'), (SELECT id_producto FROM productos WHERE nombre='Arena lavada 30 kg'), 2),
+((SELECT id_producto FROM productos WHERE nombre='Kit Ferretería'), (SELECT id_producto FROM productos WHERE nombre='Bloque 15x20x30'), 12);
+
+-- Kit Limpieza
+INSERT INTO kits_detalles (id_kit, id_producto, cantidad) VALUES
+((SELECT id_producto FROM productos WHERE nombre='Kit Limpieza'), (SELECT id_producto FROM productos WHERE nombre='Rastrillo'), 1),
+((SELECT id_producto FROM productos WHERE nombre='Kit Limpieza'), (SELECT id_producto FROM productos WHERE nombre='Escoba'), 1),
+((SELECT id_producto FROM productos WHERE nombre='Kit Limpieza'), (SELECT id_producto FROM productos WHERE nombre='Pala plástica'), 1);
+
+-- Kit Higiene
+INSERT INTO productos (id_categoria, nombre, puntos) VALUES
+(5, 'Papel higiénico', 0),
+(5, 'Jabón', 0),
+(5, 'Alcohol', 0);
+
+INSERT INTO kits_detalles (id_kit, id_producto, cantidad) VALUES
+((SELECT id_producto FROM productos WHERE nombre='Kit Higiene'), (SELECT id_producto FROM productos WHERE nombre='Papel higiénico'), 1),
+((SELECT id_producto FROM productos WHERE nombre='Kit Higiene'), (SELECT id_producto FROM productos WHERE nombre='Jabón'), 1),
+((SELECT id_producto FROM productos WHERE nombre='Kit Higiene'), (SELECT id_producto FROM productos WHERE nombre='Alcohol'), 1);
