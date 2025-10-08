@@ -107,26 +107,6 @@
 
 
 
-<!-- Formulario de Personal -->
-        <div cla>
-            <form action="login.php" method="post" id="formPer" class="formulario_personal">
-                <h2>Iniciar Sesión</h2>
-                <input type="int" placeholder="Ingrese su cédula" name="cedula" id="cedula_per" autocomplete="off">
-                <div class="password-container">
-                    <input type="password" placeholder="Ingrese su clave" name="clave" id="password_per" required autocomplete="off">
-                    <button type="button" class="toggle-password-per" onclick="togglePasswordPer()">
-                        <i class="bi bi-eye-slash"></i>
-                    </button>
-                </div>
-                <button type="submit" name="btn_iniciar_personal">Entrar</button>
-            </form>
-        </div>    
-
-
-
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -140,73 +120,80 @@
         .password-container {
             position: relative;
         }
-        .toggle-password-cli, .toggle-password-per {
-            position: absolute;
-            right: 1px;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-        .toggle-password-cli {
-            top: -18px;
-        }
-        .toggle-password-per {
-            top: -18px;
-        }
+    .toggle-password{
+        position: absolute;
+        right: 10px;
+        top: 40%;
+        transform: translateY(-40%);
+        cursor: pointer;
+        background: none;
+        border: none;
+    }   
+
     </style>
 </head>
 <body>
 
 <!--Barra de Navegacion (PARA EL LOGIN)-->
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid justify-content-between align-items-center">
+<nav class="navbar_log">
     
     <!-- Logo -->
-    <a class="navbar-brand">
-      <img src="../img/logo.png" width="200px" height="50px">
-    </a>
+      <img src="../img/ccs_recicla_logo.png" width="200px" height="100px">
 
     <!-- Botones con ajuste hacia la izquierda -->
-    </div>
   
 </nav>
 <!--Barra de Navegacion (PARA EL LOGIN)-->
 
 
-<!-- Scripts al final del documento -->
-<script>
-    // Función para formulario Cliente
-    function togglePasswordCli() {
-        const passwordInput = document.getElementById('password_cli');
-        const toggleBtn = document.querySelector('.toggle-password-cli');
-        
-        if (passwordInput.type === 'password') {
-            passwordInput.type = 'text';
-            toggleBtn.innerHTML = '<i class="bi bi-eye"></i>';
-        } else {
-            passwordInput.type = 'password';
-            toggleBtn.innerHTML = '<i class="bi bi-eye-slash"></i>';
-        }
-    }
+<div class="contenedor_form_login">
+<form class="form_login" action="login.php" method="post">
 
-    // Función para formulario Personal
-    function togglePasswordPer() {
-        const passwordInput = document.getElementById('password_per');
-        const toggleBtn = document.querySelector('.toggle-password-per');
-        
-        if (passwordInput.type === 'password') {
-            passwordInput.type = 'text';
-            toggleBtn.innerHTML = '<i class="bi bi-eye"></i>';
-        } else {
-            passwordInput.type = 'password';
-            toggleBtn.innerHTML = '<i class="bi bi-eye-slash"></i>';
-        }
-    }
-</script>
-
-<script>
+    <div class="mb-3">
+       <a class="d-flex justify-content-center"><img src="../img/logo.png" width="300px" height="200px"></a>
+    </div>
     
-</script>
+  <div class="mb-3"><label><h1 style="text-align: center;">Iniciar session</h1></label></div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+    <input type="int" name="cedula" class="form-control" id="id_cedula"  placeholder="Escriba su cedula" required autocomplete="off">
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text"><i class="bi bi-key"></i></span>
+    <input type="password" name="clave" class="form-control" id="id_clave" placeholder="Introduzca su clave de acceso" required autocomplete="off"><span style="background-color: #FF8A00"><button type="button" class="toggle-password" onclick="togglePassword()"><i class="bi bi-eye-slash"></i></button></span>
+    
+
+  </div>
+
+<div class="d-flex justify-content-end">
+  <button type="submit" name="btn_iniciar_personal" class="btn btn-success">Ingresar</button>
+</div>
+
+</form>
+
+
+        <script>
+            function togglePassword() {
+                const passwordInput = document.getElementById('id_clave');
+                const toggleBtn = document.querySelector('.toggle-password');
+
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    toggleBtn.innerHTML = '<i class="bi bi-eye"></i>';
+                }else{
+                    passwordInput.type = 'password';
+                    toggleBtn.innerHTML = '<i class="bi bi-eye-slash"></i>';
+                }
+            }
+        </script>
+
+</div>
+
+
+
+
 
 
 <!-- Bootstrap Icons -->
