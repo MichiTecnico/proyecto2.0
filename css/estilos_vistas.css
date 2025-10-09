@@ -1,24 +1,30 @@
-.menu_vertical{
-    margin-top: 6%;
-    width: 100px;
-    height: auto;
+.menu-altura-completa {
+    min-height: 100vh;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.espacio-para-menu {
+    margin-left: 280px;
+}
+
+
+
+
+.contenedor_sidebar{
+
     position: absolute;
-    z-index: 100;
-}
+    top: 30%;
 
-.icono_menu_vertical{
-    width: 90px;
-    height: 90px;
-    border: none;
-}
+    span{
+        width: 50px;
+        height: 50px;
+        background-color: #FF0062;
+        font-size: 2em;
+    }
 
-.botones_menu_vertical{
-    width: auto;
-    height: auto;
-    border: solid 1px black;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-    background: white;
-    transition: all 0.2s ease;
 }
 
 .botones_menu_vertical:active {
@@ -40,7 +46,6 @@
     color: white;
     border-radius: 20px;
     opacity: 0.9;
-    display: none;
     overflow-y: auto;
 }
 

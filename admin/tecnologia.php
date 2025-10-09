@@ -15,6 +15,7 @@ if($_SESSION['rol'] !== 'administrador' || $_SESSION['division' !== 'tecnologia'
 	<title>Division de Tecnologia</title>
 	<link rel="stylesheet" href="../css/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/estilos_vistas.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
 	<style>
 	.password-container {
 		position: relative;
@@ -27,7 +28,8 @@ if($_SESSION['rol'] !== 'administrador' || $_SESSION['division' !== 'tecnologia'
 		cursor: pointer;
 		background: none;
 		border: none;
-	}	
+	}
+
 	body {
     background-image: url("../img/tecno_recicla.png"); /* Reemplaza con la URL de tu imagen */
 	background-size: cover;
@@ -43,24 +45,49 @@ if($_SESSION['rol'] !== 'administrador' || $_SESSION['division' !== 'tecnologia'
 <body>
 	
 	<!--INCLUIR BARRA DE NAVEGACION PREDETERMINADA-->
-	<?php include "../inc/navbar.php";?>
-				<!--MENU VERTICAL A LA IZQUIERDA-->	
-			<nav class="menu_vertical">
-				<ul class="nav flex-column">
-	  				<li class="nav-item">
-	  					<!--Registro de personal-->
-	    				<button class="botones_menu_vertical" onclick="mostrar_crud0()">Registro<br><img class="icono_menu_vertical" src="../img/icono_usuarios.png"></button>
-	  				</li>
-					<li class="nav-item">
-						<!--Listado de personal registrado-->
-						<button class="botones_menu_vertical" onclick="mostrar_crud1()">Listado<img class="icono_menu_vertical" src="../img/icono_listado.png"></button>
-					</li>
-					<li class="nav-item">
-						<!--Entradas a otras divisiones-->
-						<button class="botones_menu_vertical" onclick="mostrar_entradas()">Entradas<img class="icono_menu_vertical" src="../img/entrada.png"></button>
-					</li>
-				</ul>
-			<nav>
+
+<div class="contenedor_sidebar">
+	<div class="d-flex flex-column h-100 p-3 bg-light flex-shrink-0 menu-altura-completa" style="width: 280px;">
+	    <h2 class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none" style="text-align: center;">Division de Tecnologia</h2>
+	    <hr>
+	    <ul class="nav nav-pills flex-column mb-auto">
+	        <div class="mb-3">
+	            <li class="input-group mb-3">
+	                <span class="input-group-text"><i class="bi bi-person-plus-fill text-light"></i></span>
+	                <button class="btn btn-outline-dark" onclick="mostrar_crud0()">Registrar personal</button>
+	            </li>
+	        </div>
+	        <div>
+	            <li class="input-group mb-3">
+	                <span class="input-group-text"><i class="bi bi-person-lines-fill text-light"></i></span>
+	                <button class="btn btn-outline-dark" onclick="mostrar_crud1()">Ver/actualizar personal</button>
+	            </li>
+	        </div>
+	        <li class="mb-3">
+	            <li class="input-group mb-3">
+	                <span class="input-group-text"><i class="bi bi-file-earmark-code-fill text-light"></i></span>
+	                <button class="btn btn-outline-dark" onclick="mostrar_entradas()">Logs</button>
+	            </li>
+	        </li>
+	    </ul>
+	    <hr>
+	    <div class="dropdown">
+	        <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+	            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+	            <?php
+	                echo '<strong>' . $_SESSION['nombre'] . " " . $_SESSION['apellido'] . '<br>' . 'CI: ' . $_SESSION['cedula'] . '</strong>';
+	            ?>
+	        </a>
+	        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+	            <li><a class="dropdown-item" href="#">Nuevo proyecto...</a></li>
+	            <li><a class="dropdown-item" href="#">Configuración</a></li>
+	            <li><a class="dropdown-item" href="#">Perfil</a></li>
+	            <li><hr class="dropdown-divider"></li>
+	            <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+	        </ul>
+	    </div>
+	</div>
+</div>
 
 			<!--ACCION DE BOTONES-->
 			<script>
@@ -106,10 +133,7 @@ if($_SESSION['rol'] !== 'administrador' || $_SESSION['division' !== 'tecnologia'
 				}	
 			</script>
 
-		<div class="contenedor_form_registro" id="form_registro">
-			<?php include "../vistas/register.php";?>
 
-		</div>
 		<div id="alertContainer" 
 		style="
 		position: absolute;
@@ -122,11 +146,15 @@ if($_SESSION['rol'] !== 'administrador' || $_SESSION['division' !== 'tecnologia'
 		</div>
 
 
-		<div class="contenedor_lista_usu" id="lista_usuarios">	
+		<div class="contenedor_form_registro" id="form_registro">
+			<?php include "../vistas/register.php";?>
+		</div>
+
+		<div class="contenedor_lista_usu" id="lista_usuarios" style="display: none;">	
 			<?php include "../vistas/read.php";?>
 		</div>
 
-		<div class="contenedor_entradas" id="entradas">
+		<div class="contenedor_entradas" id="entradas" style="display: none;">
 			<?php include "../vistas/entradas.php"?>		
 		</div>
 
