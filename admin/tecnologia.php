@@ -1,6 +1,6 @@
 <?php
 require_once '../php/validate_session.php';
-if($_SESSION['rol'] !== 'administrador' || $_SESSION['division' !== 'tecnologia']){
+if($_SESSION['rol'] !== 'administrador' AND $_SESSION['division' !== 'tecnologia']){
 	header("Location: ../vistas/login.php");
 	exit();
 }
@@ -20,15 +20,15 @@ if($_SESSION['rol'] !== 'administrador' || $_SESSION['division' !== 'tecnologia'
 	.password-container {
 		position: relative;
 	}
-	.toggle-password{
-		position: absolute;
-		right: 25px;
-		top: 82.5%;
-		transform: translateY(-40%);
-		cursor: pointer;
-		background: none;
-		border: none;
-	}
+    .toggle-password{
+        position: absolute;
+        right: 10px;
+        top: 40%;
+        transform: translateY(-40%);
+        cursor: pointer;
+        background: none;
+        border: none;
+    }
 
 	body {
     background-image: url("../img/tecno_recicla.png"); /* Reemplaza con la URL de tu imagen */
@@ -48,7 +48,8 @@ if($_SESSION['rol'] !== 'administrador' || $_SESSION['division' !== 'tecnologia'
 
 <div class="contenedor_sidebar">
 	<div class="d-flex flex-column h-100 p-3 bg-light flex-shrink-0 menu-altura-completa" style="width: 280px;">
-	    <h2 class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none" style="text-align: center;">Division de Tecnologia</h2>
+	    <h2 class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none" style="text-align: center;">Division de Tecnologia
+	    </h2>
 	    <hr>
 	    <ul class="nav nav-pills flex-column mb-auto">
 	        <div class="mb-3">
@@ -146,17 +147,13 @@ if($_SESSION['rol'] !== 'administrador' || $_SESSION['division' !== 'tecnologia'
 		</div>
 
 
-		<div class="contenedor_form_registro" id="form_registro">
-			<?php include "../vistas/register.php";?>
-		</div>
+<div class="contenido">
+	<?php include "../vistas/register.php";?>
+			
+	<?php include "../vistas/read.php";?>
 
-		<div class="contenedor_lista_usu" id="lista_usuarios" style="display: none;">	
-			<?php include "../vistas/read.php";?>
-		</div>
-
-		<div class="contenedor_entradas" id="entradas" style="display: none;">
-			<?php include "../vistas/entradas.php"?>		
-		</div>
+	<?php include "../vistas/entradas.php"?>		
+</div>
 
 </body>
 </html>

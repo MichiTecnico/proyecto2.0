@@ -32,57 +32,45 @@
     transform: translateY(2px);
 }
 
-.contenedor_form_registro{
-    width: 500px; /* Mantengo tamaño original */
-    min-height: 600px; /* Tamaño original */
+
+.contenido{
+    width: auto;
+    height: auto;
+    position: absolute;
+    left: 20%;
+}
+
+.contenedor_form_registro {
+    width: 100%; /* Ancho relativo */
+    max-width: 800px; /* Tamaño máximo original */
+    min-height: 600px;
     background-color: rgba(98, 104, 95, 0.979);
     border: 2px solid #fff;
-    position: relative;
-    left: 900%;
-    right: 1000%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    margin: 50px auto; /* Centrado automático */
+    margin-left: 50px;
     padding: 20px;
     color: white;
     border-radius: 20px;
     opacity: 0.9;
     overflow-y: auto;
+
 }
 
-.contenedor_lista_usu{
-    width: 1500px; /* Mantengo tamaño original */
-    height: auto; /* Altura automática según contenido */
+.contenedor_lista_usu {
+    width: 95%; /* Ancho relativo */
+    max-width: 1500px; /* Tamaño máximo original */
     background: rgba(255, 255, 255, 0.95);
-    position: absolute;
-    left: 900%;
-    right: 900%;
-    top: 50px; /* Posición fija desde arriba */
-    transform: translateX(-50%); /* Solo centrado horizontal */
+    margin: 10px auto; /* Centrado con margen */
     padding: 20px;
     color: black;
-    display: none;
     border-radius: 10px;
     overflow-y: auto;
-    max-height: 80vh; /* Scroll si es muy largo */
-    margin-top: 20px;
+    max-height: 80vh;
+    position: relative;
 }
 
-.contenedor_entradas{
-    width: 2500px; /* Mantengo tamaño original */
-    height: 500px; /* Altura automática */
-    position: absolute;
-    left: 900%;
-    right: 1000%;
-    top: 50px; /* Posición fija desde arriba */
-    transform: translateX(-50%); /* Solo centrado horizontal */
-    padding: 20px;
-    border-radius: 20px;
-    display: none;
-    background: rgba(255, 255, 255, 0.95);
-    overflow-y: auto;
-    max-height: 80vh; /* Scroll si es muy largo */
-    margin-top: 20px;
-    zoom: 60%;
+.contenedor_logs{
+    
 }
 
 .contenedor_form_update{
@@ -112,12 +100,6 @@
     border-radius: 10px;
     z-index: 1500;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.icono_entradas{
-    width: 250px; /* Tamaño original */
-    height: 250px; /* Tamaño original */
-    margin-bottom: 20px;
 }
 
 .contenedor_form_recibo{

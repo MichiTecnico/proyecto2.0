@@ -32,25 +32,40 @@ include "../inc/navbar.php";
 	    }	
 	</style>
 <body>
-	<nav class="menu_vertical">
-		<button class="botones_menu_vertical" onclick="mostrar_recibo()">Crear recibo<br><img class="icono_menu_vertical" src="../img/icono_recibo.png"></button>
-	</nav>
+	<div>
+		<button onclick="registrar_comunidad()">Registrar comunidad</button>
+		<button onclick="crear_recibo()">Crear recibo</button>
+
+	</div>
 
 <script>
 	//Crear recibo
-	function mostrar_recibo(){
-		var catalogo = document.getElementById('vista_catalogo');
+	function crear_recibo(){
+		var registro = document.getElementById('form_comunidad');
 		var recibo = document.getElementById("form_recibo");
-		if (recibo.style.display === "none"){
+		if (recibo.style.display === "none" || registro.style.display = ""){
+			registro.style.display = "none";
 			recibo.style.display = "block";
 		}else{
 			recibo.style.display = "none";
 		}
 	}
+
+		function registrar_comunidad(){
+		var registro = document.getElementById('form_comunidad');
+		var recibo = document.getElementById("form_recibo");
+		if (registro.style.display === "none" || recibo.style.display = ""){
+			recibo.style.display === "none";
+			registro.style.display = "block";
+		}else{
+			registro.style.display = "none";
+		}
+	}
+
 </script>
 	
 <?php include "formulario_recibo.php"; ?>
-
+<?php include "formulario_comercio.php"?>
 
 	
 </body>
