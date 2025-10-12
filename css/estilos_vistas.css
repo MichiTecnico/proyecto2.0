@@ -27,6 +27,21 @@
 
 }
 
+.contenedor_sidebar_eco{
+
+    position: absolute;
+    top: 30%;
+
+    span{
+        width: 50px;
+        height: 50px;
+        background-color: #2DA652;
+        font-size: 2em;
+    }
+
+}
+
+
 .botones_menu_vertical:active {
     box-shadow: 0 0 2px rgba(0,0,0,0.3);
     transform: translateY(2px);
@@ -88,34 +103,32 @@
     z-index: 2000;
 }
 
-.contenedor_archivo{
-    width: auto;
-    height: auto;
-    padding: 15px;
-    position: fixed;
-    right: 20px;
-    top: 100px;
-    background-color: white;
-    opacity: 0.95;
-    border-radius: 10px;
-    z-index: 1500;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+.contenedor_form_comunidad{
+    width: 100%; /* Ancho relativo */
+    max-width: 800px; /* Tamaño máximo original */
+    min-height: 600px;  
+    margin: 50px auto; /* Centrado automático */
+    margin-left: 50px;
+    padding: 20px;
+    border-radius: 20px;
+    opacity: 0.9;
+    overflow-y: auto;
 }
 
+
 .contenedor_form_recibo{
-    width: auto;
-    height: auto;
-    background-color: white;
+    width: 100%; /* Ancho relativo */
+    max-width: 800px; /* Tamaño máximo original */
+    min-height: 600px;
+    background-color: rgba(98, 104, 95, 0.979);
     border: 2px solid #fff;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    margin: 50px auto; /* Centrado automático */
+    margin-left: 50px;
     padding: 20px;
-    color: black;
+    color: white;
     border-radius: 20px;
-    z-index: 2000;
-    opacity: 0.95;
+    opacity: 0.9;
+    overflow-y: auto;
 }
 
 .contenedor_vista_catalogo{
@@ -134,39 +147,3 @@
     opacity: 0.95;
 }
 
-/* Solo responsive para móviles */
-@media (max-width: 768px) {
-    .contenedor_form_registro{
-        width: 95%;
-        max-width: 500px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    .contenedor_lista_usu{
-        width: 95%;
-        max-width: 800px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    .contenedor_entradas{
-        width: 95%;
-        max-width: 700px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    .menu_vertical {
-        position: relative;
-        margin: 10px auto;
-        left: 0;
-        width: 100%;
-        text-align: center;
-    }
-    
-    .botones_menu_vertical {
-        display: inline-block;
-        margin: 5px;
-    }
-}

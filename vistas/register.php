@@ -17,7 +17,7 @@
                     <div class="input-group mb-3">    
                         <!-- Input para número de cédula -->
                         <span class="input-group-text"><label for="1">Cedula de identidad</label></span>
-                        <span class="input-group-text"><i class="bi bi-person-badge"></i></span>
+                        <span class="input-group-text"><i class="bi bi-person-vcard"></i></span>
                         <input id="1" type="text" 
                         style="width: auto;" 
                             class="form-control" 

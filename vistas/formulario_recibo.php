@@ -1,30 +1,43 @@
 <div class="contenedor_form_recibo" id="form_recibo" style="display: none;">
-  <form class="form_recibo" id="formRecibo" onsubmit="generarPDF(event)">
+  <form id="formRecibo" onsubmit="generarPDF(event)">
     <h2>Datos de Envio</h2>
 
     <!-- Eliminados los campos de fecha y número de recibo como solicitado; se generan automáticamente -->
-
-    <label>Tipo de Documento:
+<div class="input-group mb-3">
+      <span class="input-group-text"><label for="tipoDocumento">Tipo de documento</label></span>
+      <span class="input-group-text"><i class="bi bi-receipt"></i></span>
       <select name="tipo" id="tipoDocumento" required>
+        <option value="" disabled selected>Escoja el tipo de documento</option>
         <option value="pre">Pre-Recibo</option>
         <option value="final">Recibo Final</option>
       </select>
-    </label>
-    <label>Comercio o Institución:
-      <input type="text" name="comercio" id="comercio" required autocomplete="off">
-    </label>
+    
+</div>
+<div class="input-group mb-3">    
+      <span class="input-group-text"><label for="comercio">Comercio o Institucion</label></span>
+      <span class="input-group-text"><i class="bi bi-building-add"></i></span>
+      <input type="text" name="comercio" id="comercio" placeholder="Escriba el nombre del comercio o Institucion" required autocomplete="off">
+</div>
     <h2>Datos de Recibo</h2>
             
-    <label>Responsable:
-      <input type="text" name="responsable" id="responsable" required autocomplete="off">
-    </label>
-    <label>Cargo:
-      <input type="text" name="cargo" id="cargo" required autocomplete="off">
-    </label>
-    <label>Dirección:
-      <textarea name="direccion" id="direccion" rows="2" autocomplete="off"></textarea>
-    </label>
+<div class="input-group mb-3">
+    <span class="input-group-text"><label for="responsable">Responsable</label></span>
+    <span class="input-group-text"><i class="bi bi-person"></i></span>
+    <input type="text" name="responsable" id="responsable" placeholder="Escriba el nombre del responsable" required autocomplete="off">
+</div>
+    
+<div class="input-group mb-3">
+    <span class="input-group-text"><label for="cargo">Cargo del Responsable</label></span>
+    <span class="input-group-text"><i class="bi bi-person-badge"></i></span>
+    <input type="text" name="cargo" id="cargo" placeholder="Escriba el cargo del responsable" required autocomplete="off">
+</div>
 
+<div class="input-group mb-3">
+    <span class="input-group-text"><label for="direccion">Direccion</label></span>
+    <span class="input-group-text"><i class="bi bi-geo-alt"></i></span>  
+    <textarea name="direccion" id="direccion" rows="2" placeholder="Escriba la direccion exacta" autocomplete="off"></textarea>
+    </label>
+</div>
     <button type="button" id="abrirForm2">Siguiente</button>
 
     <!-- Aquí se incluye el segundo formulario como parte del mismo <form> principal para que todos los datos se envíen juntos al submit -->

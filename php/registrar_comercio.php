@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("ssssss", $nombre, $ubicacion, $nombre_responsable, $cedula_responsable, $telefono_responsable, $tipo);
 
     if ($stmt->execute()) {
-        echo "<script>alert('Registro guardado exitosamente.'); window.location.href='nombre_de_tu_vista.php';</script>";
+        echo "<script>alert('Registro guardado exitosamente.'); window.location.href='../vistas/eco_circulante.php';</script>";
     } else {
         echo "<script>alert('Error al guardar el registro. Intente nuevamente.'); history.back();</script>";
     }
