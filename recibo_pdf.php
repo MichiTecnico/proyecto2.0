@@ -82,6 +82,105 @@ CORPORACION CARACAS RECICLA, S.A.</h5>
 
 	</table>
 
+	<table>
+
+		<tr>
+			<td>TIPO DE MATERIAL RECIBIDO</td>
+			<td>CANTIDAD KG</td>
+			<td>PUNTOS</td>
+		</tr>
+
+		<tr>
+			<td>ALUMINIO</td>
+			<td></td>
+			<td></td>
+		</tr>
+
+		<tr>
+			<td>ARCHIVO</td>
+			<td></td>
+			<td></td>
+		</tr>
+
+		<tr>
+			<td>CARTON</td>
+			<td></td>
+			<td></td>
+		</tr>
+
+		<tr>
+			<td>CALAMINA</td>
+			<td></td>
+			<td></td>
+		</tr>
+
+		<tr>
+			<td>HIERRO</td>
+			<td></td>
+			<td></td>
+		</tr>
+
+		<tr>
+			<td>LATON</td>
+			<td></td>
+			<td></td>
+		</tr>
+
+		<tr>
+			<td>PELICULA LIMPIA</td>
+			<td></td>
+			<td></td>
+		</tr>
+
+		<tr>
+			<td>PELICULA SUCIA</td>
+			<td></td>
+			<td></td>
+		</tr>
+
+		<tr>
+			<td>PLASTICO MIXTO</td>
+			<td></td>
+			<td></td>
+		</tr>
+
+		<tr>
+			<td>PLASTICO PET</td>
+			<td></td>
+			<td></td>
+		</tr>
+
+		<tr>
+			<td>PLASTICO TOBO Y CESTA</td>
+			<td></td>
+			<td></td>
+		</tr>
+
+		<tr>
+			<td>SOPLADO BLANCO</td>
+			<td></td>
+			<td></td>
+		</tr>
+
+		<tr>
+			<td>SOPLADO COLOR</td>
+			<td></td>
+			<td></td>
+		</tr>
+
+		<tr>
+			<td>VIDRIO</td>
+			<td></td>
+			<td></td>
+		</tr>
+
+		<tr>
+			<td>TOTALES</td>
+			<td></td>
+			<td></td>
+		</tr>
+
+	</table>
 
 	";
 $html2pdf->writeHTML($contenidoHTML);
