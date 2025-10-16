@@ -135,11 +135,15 @@ if($_SESSION['rol'] !== 'administrador' AND $_SESSION['division' !== 'tecnologia
 			</script>
 
 
+
+<div class="contenido">
+	<?php include "../vistas/register.php";?>
+
 		<div id="alertContainer" 
 		style="
 		position: absolute;
 		top: 10%; 
-		left: 1500%; 
+		left: 150%; 
 		z-index: 1000; 
 		width: 300px;
 		">
@@ -147,13 +151,12 @@ if($_SESSION['rol'] !== 'administrador' AND $_SESSION['division' !== 'tecnologia
 		</div>
 
 
-<div class="contenido">
-	<?php include "../vistas/register.php";?>
-			
 	<?php include "../vistas/read.php";?>
 
 	<?php include "../vistas/entradas.php"?>		
 </div>
+
+
 
 </body>
 </html>

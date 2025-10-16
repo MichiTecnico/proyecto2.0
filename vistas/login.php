@@ -1,3 +1,6 @@
+
+<!--ADAPTAR AL FORMULARIO DE INICIO DE SESSION DE CLIENTE Y PERSONAL-->
+
 <?php
     /*Validacion de Personal*/
     require("../php/main.php");
@@ -103,10 +106,6 @@
     }
 ?>
 
-<!--ADAPTAR AL FORMULARIO DE INICIO DE SESSION DE CLIENTE Y PERSONAL-->
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -145,9 +144,8 @@
 </nav>
 <!--Barra de Navegacion (PARA EL LOGIN)-->
 
-
 <div class="contenedor_form_login">
-<form class="form_login" action="login.php" method="post">
+<form id="formLogin" class="form_login" action="login.php" method="post">
 
     <div class="mb-3">
        <a class="d-flex justify-content-center"><img src="../img/logo.png" width="300px" height="200px"></a>
@@ -157,14 +155,12 @@
 
   <div class="input-group mb-3">
     <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
-    <input type="int" name="cedula" class="form-control" id="id_cedula"  placeholder="Escriba su cedula" required autocomplete="off">
+    <input type="int" name="cedula" class="form-control" id="id_cedula"  placeholder="Escriba su cedula" autocomplete="off">
   </div>
 
   <div class="input-group mb-3">
     <span class="input-group-text"><i class="bi bi-key"></i></span>
-    <input type="password" name="clave" class="form-control" id="id_clave" placeholder="Introduzca su clave de acceso" required autocomplete="off"><span style="background-color: #FF8A00"><button type="button" class="toggle-password" onclick="togglePassword()"><i class="bi bi-eye-slash"></i></button></span>
-    
-
+    <input type="password" name="clave" class="form-control" id="id_clave" placeholder="Introduzca su clave de acceso" autocomplete="off"><span style="background-color: #FF8A00"><button type="button" class="toggle-password" onclick="togglePassword()"><i class="bi bi-eye-slash"></i></button></span>
   </div>
 
 <div class="d-flex justify-content-end">
@@ -173,39 +169,109 @@
 
 </form>
 
-
-        <script>
-            function togglePassword() {
-                const passwordInput = document.getElementById('id_clave');
-                const toggleBtn = document.querySelector('.toggle-password');
-
-                if (passwordInput.type === 'password') {
-                    passwordInput.type = 'text';
-                    toggleBtn.innerHTML = '<i class="bi bi-eye"></i>';
-                }else{
-                    passwordInput.type = 'password';
-                    toggleBtn.innerHTML = '<i class="bi bi-eye-slash"></i>';
-                }
-            }
-        </script>
+<div id="alertContainer" 
+style="
+position: absolute;  
+width: 300px;
+left: -100%;">
+</div>
 
 </div>
 
 
+<script>
 
+function mostrarAlerta(mensaje, tipo = 'danger', tiempo = 5000){
+    const alertContainer = document.getElementById('alertContainer');
+
+    const alerta = document.createElement('div');
+    alerta.className = `alert alert-${tipo} alert-dismissible fade show`;
+    alerta.innerHTML =`
+        <strong>Error:</strong> ${mensaje}`;
+
+    alertContainer.appendChild(alerta);
+
+    setTimeout(() => {
+        if (alerta.parentElement) {
+            alerta.remove();
+        }
+    }, tiempo);
+}
+
+
+
+    //Cuando se presiona el botón de enviar
+    document.getElementById('formLogin').addEventListener('submit', function(e) {
+                    
+        //Obtener los valores de los campos (como siempre lo haces)
+        const cedula = document.getElementById('id_cedula').value;
+        const clave = document.getElementById('id_clave').value;
+
+        const alertContainer = document.getElementById('alertContainer');
+
+        // Inicializar variable si esta todo bien
+        let todoBien = true;
+        
+        // Validar cedula
+        if (isNaN(cedula)) {
+            todoBien = false;
+            mostrarAlerta('La cedula solo debe tener numeros');
+        }
+
+        // Validar longitud de cedula
+        if (cedula.length > 8 || cedula.length < 7) {
+            todoBien = false;
+            mostrarAlerta('La cedula solo no puede ser mas de 8 digitos ni menos de 7 digitos');
+        }
+
+
+        // Validar campos vacíos
+        if (cedula === '' || clave === '') {
+            todoBien = false;
+            mostrarAlerta('Hay campos vacios');
+        }
+        
+        // Validar contraseña
+        if (clave.length < 8) {
+            todoBien = false;
+            mostrarAlerta('La contraseña debe tener 8 caracteres o mas');
+
+        }
+
+        // 8. Solo enviar si todo está bien
+        if (!todoBien) {
+            e.preventDefault();
+        }
+    });
+
+</script>
+<script>
+
+
+    function togglePassword() {
+        const passwordInput = document.getElementById('id_clave');
+        const toggleBtn = document.querySelector('.toggle-password');
+
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            toggleBtn.innerHTML = '<i class="bi bi-eye"></i>';
+        }else{
+            passwordInput.type = 'password';
+            toggleBtn.innerHTML = '<i class="bi bi-eye-slash"></i>';
+        }
+    }
+</script>
 
 
 
 <!-- Bootstrap Icons -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-<!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap JS -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
-<!-- Bootstrap 5 JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 </html>
+
+
+
+
+

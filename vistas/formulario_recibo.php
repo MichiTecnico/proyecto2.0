@@ -4,6 +4,14 @@
 
     <!-- Eliminados los campos de fecha y número de recibo como solicitado; se generan automáticamente -->
 <div class="input-group mb-3">
+      <span class="input-group-text"><label for="fecha">Fecha</label></span>
+      <input type="date" name="fecha" id="fecha"  >
+</div>
+<div class="input-group mb-3">
+      <span class="input-group-text"><label for="fecha">Nº de recibo</label></span>
+      <input type="int" name="correlativo" id="correlativo" placeholder="Escriba el nº de recibo">
+</div>
+<div class="input-group mb-3">
       <span class="input-group-text"><label for="tipoDocumento">Tipo de documento</label></span>
       <span class="input-group-text"><i class="bi bi-receipt"></i></span>
       <select name="tipo" id="tipoDocumento" required>
@@ -54,86 +62,86 @@
         <tbody>
           <tr>
             <td>Aluminio</td>
-            <td><input type="number" name="cantidad[]" step="0.01" autocomplete="off"></td>
-            <td><input type="number" name="puntos[]" step="0.01" autocomplete="off"></td>
+            <td><input type="number" name="aluminio_cantidad" step="0.01" autocomplete="off"></td>
+            <td><input type="number" name="aluminio_puntos" step="0.01" autocomplete="off"></td>
           </tr>
 
           <tr>
             <td>Archivo</td>
-            <td><input type="number" name="cantidad[]" step="0.01" autocomplete="off"></td>
-            <td><input type="number" name="puntos[]" step="0.01" autocomplete="off"></td>
+            <td><input type="number" name="archivo_cantidad" step="0.01" autocomplete="off"></td>
+            <td><input type="number" name="archivo_puntos" step="0.01" autocomplete="off"></td>
           </tr>
 
           <tr>
             <td>Carton</td>
-            <td><input type="number" name="cantidad[]" step="0.01" autocomplete="off"></td>
-            <td><input type="number" name="puntos[]" step="0.01" autocomplete="off"></td>
+            <td><input type="number" name="carton_cantidad" step="0.01" autocomplete="off"></td>
+            <td><input type="number" name="carton_puntos" step="0.01" autocomplete="off"></td>
           </tr>
 
           <tr>
             <td>Calamina</td>
-            <td><input type="number" name="cantidad[]" step="0.01" autocomplete="off"></td>
-            <td><input type="number" name="puntos[]" step="0.01" autocomplete="off"></td>
+            <td><input type="number" name="calamina_cantidad" step="0.01" autocomplete="off"></td>
+            <td><input type="number" name="calamina_puntos" step="0.01" autocomplete="off"></td>
           </tr>
 
           <tr>
             <td>Hierro</td>
-            <td><input type="number" name="cantidad[]" step="0.01" autocomplete="off"></td>
-            <td><input type="number" name="puntos[]" step="0.01" autocomplete="off"></td>
+            <td><input type="number" name="hierro_cantidad" step="0.01" autocomplete="off"></td>
+            <td><input type="number" name="hierro_puntos" step="0.01" autocomplete="off"></td>
           </tr>
 
           <tr>
             <td>Laton</td>
-            <td><input type="number" name="cantidad[]" step="0.01" autocomplete="off"></td>
-            <td><input type="number" name="puntos[]" step="0.01" autocomplete="off"></td>
+            <td><input type="number" name="laton_cantidad" step="0.01" autocomplete="off"></td>
+            <td><input type="number" name="laton_puntos" step="0.01" autocomplete="off"></td>
           </tr>
 
           <tr>
             <td>Pelicula limpia</td>
-            <td><input type="number" name="cantidad[]" step="0.01" autocomplete="off"></td>
-            <td><input type="number" name="puntos[]" step="0.01" autocomplete="off"></td>
+            <td><input type="number" name="pelicula_limpia_cantidad" step="0.01" autocomplete="off"></td>
+            <td><input type="number" name="pelicula_limpia_puntos" step="0.01" autocomplete="off"></td>
           </tr>
 
           <tr>  
             <td>Pelicula sucia</td>
-            <td><input type="number" name="cantidad[]" step="0.01" autocomplete="off"></td>
-            <td><input type="number" name="puntos[]" step="0.01" autocomplete="off"></td>
+            <td><input type="number" name="pelicula_sucia_cantidad" step="0.01" autocomplete="off"></td>
+            <td><input type="number" name="pelicula_sucia_puntos" step="0.01" autocomplete="off"></td>
           </tr>
 
           <tr>
             <td>Plastico mixto</td>
-            <td><input type="number" name="cantidad[]" step="0.01" autocomplete="off"></td>
-            <td><input type="number" name="puntos[]" step="0.01" autocomplete="off"></td>
+            <td><input type="number" name="plastico_mixto_cantidad" step="0.01" autocomplete="off"></td>
+            <td><input type="number" name="plastico_mixto_puntos" step="0.01" autocomplete="off"></td>
           </tr>
 
           <tr>
             <td>Plastico Pet</td>
-            <td><input type="number" name="cantidad[]" step="0.01" autocomplete="off"></td>
-            <td><input type="number" name="puntos[]" step="0.01" autocomplete="off"></td>
+            <td><input type="number" name="plastico_pet_cantidad" step="0.01" autocomplete="off"></td>
+            <td><input type="number" name="plastico_pet_puntos" step="0.01" autocomplete="off"></td>
           </tr>
 
           <tr>
             <td>Plastico tobo y cesta</td>
-            <td><input type="number" name="cantidad[]" step="0.01" autocomplete="off"></td>
-            <td><input type="number" name="puntos[]" step="0.01" autocomplete="off"></td>
+            <td><input type="number" name="plastico_tobo_cantidad" step="0.01" autocomplete="off"></td>
+            <td><input type="number" name="plastico_tobo_puntos" step="0.01" autocomplete="off"></td>
           </tr>
 
           <tr>
             <td>Soplado blanco</td>
-            <td><input type="number" name="cantidad[]" step="0.01" autocomplete="off"></td>
-            <td><input type="number" name="puntos[]" step="0.01" autocomplete="off"></td>
+            <td><input type="number" name="soplado_blanco_cantidad" step="0.01" autocomplete="off"></td>
+            <td><input type="number" name="soplado_blanco_puntos" step="0.01" autocomplete="off"></td>
           </tr>
 
           <tr>
             <td>Soplado color</td>
-            <td><input type="number" name="cantidad[]" step="0.01" autocomplete="off"></td>
-            <td><input type="number" name="puntos[]" step="0.01" autocomplete="off"></td>
+            <td><input type="number" name="soplado_color_cantidad" step="0.01" autocomplete="off"></td>
+            <td><input type="number" name="soplado_color_puntos" step="0.01" autocomplete="off"></td>
           </tr>
 
           <tr>
             <td>Vidrio</td>
-            <td><input type="number" name="cantidad[]" step="0.01" autocomplete="off"></td>
-            <td><input type="number" name="puntos[]" step="0.01" autocomplete="off"></td>
+            <td><input type="number" name="vidrio_cantidad" step="0.01" autocomplete="off"></td>
+            <td><input type="number" name="vidrio_puntos" step="0.01" autocomplete="off"></td>
           </tr>
 
         </tbody>
@@ -157,62 +165,101 @@
 </div>
 
 <script>
-// FUNCIÓN PARA CALCULAR Y ACTUALIZAR TOTALES
+// Función para calcular y actualizar totales SIN ACUMULAR PUNTOS
 function updateTotals() {
-  console.log("--- INICIANDO CÁLCULO POR FILAS ---");
+  console.log("--- INICIANDO CÁLCULO ---");
   
-  var filas = document.querySelectorAll('#tablaMateriales tbody tr');
+  var materiales = [
+    'aluminio', 'archivo', 'carton', 'hierro', 
+    'pelicula_limpia', 'pelicula_sucia', 'plastico_mixto', 
+    'plastico_pet', 'plastico_tobo', 'soplado_blanco', 
+    'soplado_color', 'vidrio', 'laton', 'calamina'
+  ];
+  
   var totalKg = 0;
-  var totalPuntos = 0;
+  var totalPuntosEsteRecibo = 0; // SOLO puntos de ESTE recibo
   
-  filas.forEach(function(fila, index) {
-    var inputKilos = fila.querySelector('input[name="cantidad[]"]');
-    var inputPuntos = fila.querySelector('input[name="puntos[]"]');
+  materiales.forEach(function(material) {
+    // Input de cantidad
+    var inputCantidad = document.querySelector('input[name="' + material + '_cantidad"]');
+    var cantidad = parseFloat(inputCantidad.value) || 0;
     
-    var kilos = parseFloat(inputKilos.value) || 0;
+    // Input de puntos (individual)
+    var inputPuntos = document.querySelector('input[name="' + material + '_puntos"]');
     
-    // CALCULAR PUNTOS: kilos ÷ 10
-    var puntosEstaFila = kilos / 10;
+    // Calcular puntos individuales (cantidad / 10)
+    var puntosIndividuales = cantidad / 10;
+    inputPuntos.value = puntosIndividuales.toFixed(2);
     
-    // LLENAR AUTOMÁTICAMENTE EL INPUT DE PUNTOS
-    inputPuntos.value = puntosEstaFila.toFixed(2);
+    // Acumular totales
+    totalKg += cantidad;
+    totalPuntosEsteRecibo += puntosIndividuales;
     
-    totalKg += kilos;
-    totalPuntos += puntosEstaFila;
-    
-    console.log("Fila " + (index + 1) + ": " + kilos + " kg ÷ 10 = " + puntosEstaFila.toFixed(2) + " puntos");
+    console.log(material + ": " + cantidad + " kg = " + puntosIndividuales.toFixed(2) + " puntos");
   });
   
-  document.getElementById('total_cantidad').value = totalKg.toFixed(2);
-  document.getElementById('total_puntos').value = totalPuntos.toFixed(2);
-  
   console.log("TOTAL KG: " + totalKg.toFixed(2));
-  console.log("TOTAL PUNTOS: " + totalPuntos.toFixed(2));
+  console.log("TOTAL PUNTOS ESTE RECIBO: " + totalPuntosEsteRecibo.toFixed(2));
+  
+  // MOSTRAR SOLO LOS PUNTOS DE ESTE RECIBO (NO ACUMULADOS)
+  document.getElementById('total_cantidad').value = totalKg.toFixed(2);
+  document.getElementById('total_puntos').value = totalPuntosEsteRecibo.toFixed(2);
 }
 
-// CONFIGURACIÓN CUANDO LA PÁGINA CARGA
+// Configuración de event listeners cuando la página carga
 document.addEventListener('DOMContentLoaded', function() {
-  // 🎯 ESTA ES LA PARTE QUE HACE APARECER LA TABLA
+  // Event listeners para navegación entre formularios
   document.getElementById('abrirForm2').addEventListener('click', function(e){
     e.preventDefault();
     document.getElementById('form_recibo2').style.display = 'block';
-    console.log("Tabla de materiales mostrada");
   });
 
-  // 🎯 ESTA ES LA PARTE QUE OCULTA LA TABLA
   document.getElementById('abrirForm').addEventListener('click', function(e) {
     e.preventDefault(); 
     document.getElementById('form_recibo2').style.display = 'none';
-    console.log("Tabla de materiales ocultada");
   });
 
-  // VIGILAR TODOS LOS INPUTS DE LA TABLA
-  var todosLosInputs = document.querySelectorAll('#tablaMateriales input');
-  todosLosInputs.forEach(function(input) {
-    input.addEventListener('input', updateTotals);
+  // Event listeners para cálculo automático de totales
+  var materiales = [
+    'aluminio', 'archivo', 'carton', 'hierro', 
+    'pelicula_limpia', 'pelicula_sucia', 'plastico_mixto', 
+    'plastico_pet', 'plastico_tobo', 'soplado_blanco', 
+    'soplado_color', 'vidrio', 'laton', 'calamina'
+  ];
+  
+  materiales.forEach(function(material) {
+    var input = document.querySelector('input[name="' + material + '_cantidad"]');
+    if (input) {
+      input.addEventListener('input', updateTotals);
+    }
+  });
+
+  // Configurar el botón de guardar
+  document.querySelector('button[type="submit"]').addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    // Calcular puntos del recibo actual para mostrar en alerta
+    var materiales = [
+      'aluminio', 'archivo', 'carton', 'hierro', 
+      'pelicula_limpia', 'pelicula_sucia', 'plastico_mixto', 
+      'plastico_pet', 'plastico_tobo', 'soplado_blanco', 
+      'soplado_color', 'vidrio', 'laton', 'calamina'
+    ];
+    
+    var totalPuntosEsteRecibo = 0;
+    materiales.forEach(function(material) {
+      var inputCantidad = document.querySelector('input[name="' + material + '_cantidad"]');
+      var cantidad = parseFloat(inputCantidad.value) || 0;
+      totalPuntosEsteRecibo += cantidad / 10;
+    });
+    
+    alert("Recibo guardado! Puntos de este recibo: " + totalPuntosEsteRecibo.toFixed(2));
+    
+    // Enviar el formulario normal a PHP
+    document.getElementById('formRecibo').submit();
   });
   
-  // INICIAR CÁLCULOS AL CARGAR
+  // Inicializar totales al cargar
   updateTotals();
 });
 </script>
