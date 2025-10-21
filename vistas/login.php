@@ -1,6 +1,3 @@
-
-<!--ADAPTAR AL FORMULARIO DE INICIO DE SESSION DE CLIENTE Y PERSONAL-->
-
 <?php
     /*Validacion de Personal*/
     require("../php/main.php");
@@ -221,7 +218,7 @@ function mostrarAlerta(mensaje, tipo = 'danger', tiempo = 5000){
         // Validar longitud de cedula
         if (cedula.length > 8 || cedula.length < 7) {
             todoBien = false;
-            mostrarAlerta('La cedula solo no puede ser mas de 8 digitos ni menos de 7 digitos');
+            mostrarAlerta('Cédula debe tener 7 u 8 dígitos');
         }
 
 

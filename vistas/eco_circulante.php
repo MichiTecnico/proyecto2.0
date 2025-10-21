@@ -43,7 +43,7 @@ if ($_SESSION['rol'] !== 'gerente' && $_SESSION['rol'] !== 'administrador' || $_
 	        <div class="mb-3">
 	            <li class="input-group mb-3">
 	                <span class="input-group-text"><i class="bi bi-building-fill text-light"></i></span>
-	                <button class="btn btn-outline-dark" onclick="registrar_comunidad()">Registrar comunidad</button>
+	                <button class="btn btn-outline-dark" onclick="registrar_comunidad()">Registrar entidad</button>
 	            </li>
 	        </div>
 	        <div>
@@ -82,13 +82,13 @@ if ($_SESSION['rol'] !== 'gerente' && $_SESSION['rol'] !== 'administrador' || $_
 <div class="contenido">
 	
 	<?php include "formulario_recibo.php"; ?>	
-	<?php include "formulario_comercio.php"; ?>
+	<?php include "formulario_entidad.php"; ?>
 
 </div>
 
 <script>
 	function registrar_comunidad(){
-		var registro = document.getElementById("form_comunidad");
+		var registro = document.getElementById("form_entidad");
 		var recibo = document.getElementById("form_recibo");
 		if (registro.style.display === "none" || recibo.style.display === ""){
 			recibo.style.display = "none";
@@ -101,7 +101,7 @@ if ($_SESSION['rol'] !== 'gerente' && $_SESSION['rol'] !== 'administrador' || $_
 
 	//Crear recibo
 	function crear_recibo(){
-		var registro = document.getElementById('form_comunidad');
+		var registro = document.getElementById('form_entidad');
 		var recibo = document.getElementById("form_recibo");
 		if (recibo.style.display === "none" || registro.style.display === ""){
 			registro.style.display = "none";

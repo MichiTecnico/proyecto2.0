@@ -1,12 +1,18 @@
+<?php
+require "../php/main.php";
+
+$sql = "SELECT nombre FROM entidad";
+$result = mysqli_query($con, $sql);
+
+?>
+
+
 <div class="contenedor_form_recibo" id="form_recibo" style="display: none;">
   <form id="formRecibo" action="../recibo_pdf.php" method="post">
     <h2>Datos de Envio</h2>
 
     <!-- Eliminados los campos de fecha y número de recibo como solicitado; se generan automáticamente -->
-<div class="input-group mb-3">
-      <span class="input-group-text"><label for="fecha">Fecha</label></span>
-      <input type="date" name="fecha" id="fecha"  >
-</div>
+
 <div class="input-group mb-3">
       <span class="input-group-text"><label for="fecha">Nº de recibo</label></span>
       <input type="int" name="correlativo" id="correlativo" placeholder="Escriba el nº de recibo">
@@ -21,31 +27,36 @@
       </select>
     
 </div>
+
 <div class="input-group mb-3">    
-      <span class="input-group-text"><label for="comercio">Comercio o Institucion</label></span>
+
+      <span class="input-group-text"><label for="entidad">Entidad</label></span>
       <span class="input-group-text"><i class="bi bi-building-add"></i></span>
-      <input type="text" name="comercio" id="comercio" placeholder="Escriba el nombre del comercio o Institucion" required autocomplete="off">
+  <?php
+    echo '<select name="entidad" id="entidad" required>';
+    echo '<option value="" disabled selected>Seleccione la entidad registrada</option>';
+
+      foreach ($result as $nombre) {
+        echo '<option value="' . $nombre['nombre'] . '">' . $nombre['nombre'] . '</option>';
+      }
+    echo '</select>';
+  ?>
+
 </div>
     <h2>Datos de Recibo</h2>
             
 <div class="input-group mb-3">
-    <span class="input-group-text"><label for="responsable">Responsable</label></span>
+    <span class="input-group-text"><label for="encargado">Encargado</label></span>
     <span class="input-group-text"><i class="bi bi-person"></i></span>
-    <input type="text" name="responsable" id="responsable" placeholder="Escriba el nombre del responsable" required autocomplete="off">
+    <input type="text" name="encargado" id="encargado" placeholder="Escriba el nombre del encargado" required autocomplete="off">
 </div>
     
 <div class="input-group mb-3">
-    <span class="input-group-text"><label for="cargo">Cargo del Responsable</label></span>
+    <span class="input-group-text"><label for="cargo">Cargo del Encargado</label></span>
     <span class="input-group-text"><i class="bi bi-person-badge"></i></span>
-    <input type="text" name="cargo" id="cargo" placeholder="Escriba el cargo del responsable" required autocomplete="off">
+    <input type="text" name="cargo" id="cargo" placeholder="Escriba el cargo del encargado" required autocomplete="off">
 </div>
 
-<div class="input-group mb-3">
-    <span class="input-group-text"><label for="direccion">Direccion</label></span>
-    <span class="input-group-text"><i class="bi bi-geo-alt"></i></span>  
-    <textarea name="direccion" id="direccion" rows="2" placeholder="Escriba la direccion exacta" autocomplete="off"></textarea>
-    </label>
-</div>
     <button type="button" id="abrirForm2">Siguiente</button>
 
     <!-- Aquí se incluye el segundo formulario como parte del mismo <form> principal para que todos los datos se envíen juntos al submit -->
@@ -158,7 +169,7 @@
       <br>
 
       <button type="button" id="abrirForm">Anterior</button>
-      <button type="submit">Guardar Recibo</button>
+      <button type="submit" name="guardar_recibo">Guardar Recibo</button>
     </div>
 
   </form>

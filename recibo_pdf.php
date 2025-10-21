@@ -1,11 +1,17 @@
 <?php
-$fecha = $_POST['fecha'];
+include './php/main.php';
+
+$fecha = date("d-m-Y");
 $correlativo = $_POST['correlativo'];
-$responsable = $_POST['responsable'];
-$tipo = $_POST['tipo'];
-$comercio = $_POST['comercio'];
+$encargado = $_POST['encargado'];
+$entidad = $_POST['entidad'];
 $cargo = $_POST['cargo'];
-$direccion = $_POST['direccion'];
+
+
+$sql = "SELECT ubicacion FROM entidad WHERE nombre = '$entidad'";
+$result = mysqli_query($con, $sql);
+$direccion = mysqli_fetch_array($result);
+
 
 //ALUMINIO
 $aluminio_c = $_POST['aluminio_cantidad'];
@@ -67,10 +73,14 @@ $vidrio_p = $_POST['vidrio_puntos'];
 $total_c = $_POST['total_cantidad'];
 $total_p = $_POST['total_puntos'];
 
+
+
+
 require __DIR__.'/vendor/autoload.php';
 use Spipu\Html2Pdf\Html2Pdf;
 
 $html2pdf = new Html2Pdf();
+
 $contenidoHTML = "
 
 <style>
@@ -121,12 +131,12 @@ td{
 
 		<tr>
 			<td>COMERCIO O INSTITUCION:</td>
-			<td>".$comercio."</td>
+			<td>".$entidad."</td>
 		</tr>
 
 		<tr>
 			<td>RESPONSABLE</td>
-			<td>".$responsable."</td>
+			<td>".$encargado."</td>
 		</tr>
 
 		<tr>
@@ -136,7 +146,7 @@ td{
 
 		<tr>
 			<td>DIRECCION</td>
-			<td>".$direccion."</td>
+			<td>".$direccion['ubicacion']."</td>
 		</tr>
 
 	</table>
@@ -246,5 +256,6 @@ td{
 	";
 $html2pdf->writeHTML($contenidoHTML);
 $html2pdf->output();
+
 
 ?>

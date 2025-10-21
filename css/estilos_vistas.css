@@ -103,7 +103,7 @@
     z-index: 2000;
 }
 
-.contenedor_form_comunidad{
+.contenedor_form_entidad{
     width: 100%; /* Ancho relativo */
     max-width: 800px; /* Tamaño máximo original */
     min-height: 600px;  
